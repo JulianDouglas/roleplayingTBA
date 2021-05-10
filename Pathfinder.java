@@ -7,6 +7,7 @@ import java.util.Arrays;
 
 class Pathfinder{
 	public static pth_input playerInput;
+	public static Global Global;
 
 	//Should return 0 or 1 for natural or unatural death
 	public static void main(String[] args){
@@ -16,10 +17,11 @@ class Pathfinder{
 
 	private static void pthfnder_initialize(){
 		//Load up dependencies
-		Global Global = new Global();
+		Global = new Global();
 
 		//Set Running Flag
 		Global.running = true;
+		Global.clearScreen();
 		//Start with Input class
 		playerInput = new pth_input("Player Input Parser",false);
 
@@ -53,14 +55,21 @@ class Pathfinder{
 
 		gameInput = playerInput.pth_RetrieveInput();
 
-		for(int i = 0;i<listedRuleSets.length;i++){
-			if (gameInput.equals(listedRuleSets[i]))
-			{
-				Global.currentGame=listedRuleSets[i];
-				Global.contentDirectory=listedRules.getPath();
-				Global.contentDirectory+="/"+Global.currentGame;
-				System.out.println(Global.currentGame);
-				System.out.println(Global.contentDirectory);
+		if (gameInput.equals("DMTools") || gameInput.equals("DMTools"))
+		{
+			Global.startDMmode();
+		}
+		else
+		{
+			for(int i = 0;i<listedRuleSets.length;i++){
+				if (gameInput.equals(listedRuleSets[i]))
+				{
+					Global.currentGame=listedRuleSets[i];
+					Global.contentDirectory=listedRules.getPath();
+					Global.contentDirectory+="/"+Global.currentGame;
+					System.out.println(Global.currentGame);
+					System.out.println(Global.contentDirectory);
+				}
 			}
 		}
 	};
