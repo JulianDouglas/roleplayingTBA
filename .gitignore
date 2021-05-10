@@ -3,8 +3,12 @@
 *.ddl
 
 #list of modules to ignore
+\AD&D Modules
 \AD&D Modules\*
+\Cyberpunk Modules
 \Cyberpunk Modules\*
+\DeathwatchModules\
 \DeathwatchModules\*
+\Pathfinder Modules\
 \Pathfinder Modules\*
 
