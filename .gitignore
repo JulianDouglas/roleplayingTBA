@@ -1,0 +1,10 @@
+*.pdf
+*.class
+*.ddl
+
+#list of modules to ignore
+\AD&D Modules\*
+\Cyberpunk Modules\*
+\DeathwatchModules\*
+\Pathfinder Modules\*
+

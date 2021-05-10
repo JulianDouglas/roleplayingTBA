@@ -1,0 +1,6 @@
+2020/06/01 16:16:59| Test Logger
+2020/06/01 16:17:09| Test Logger
+2020/06/03 08:50:08| Test Logger
+2020/06/03 20:05:44| Parser:Rules Error:java.lang.NullPointerException
+2020/06/03 20:30:30| Parser:Rules/Rules Error:java.lang.NullPointerException
+2020/06/03 20:31:30| Parser:Rules/Rules Error:java.lang.NullPointerException
