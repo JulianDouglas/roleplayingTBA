@@ -55,7 +55,7 @@ class Pathfinder{
 
 		gameInput = playerInput.pth_RetrieveInput();
 
-		if (gameInput.equals("DMTools") || gameInput.equals("DMTools"))
+		if (gameInput.equalsIgnoreCase("DMTools"))
 		{
 			Global.startDMmode();
 		}

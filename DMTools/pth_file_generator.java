@@ -17,7 +17,7 @@ import java.util.Random;
 import java.util.Arrays;
 
 
-public class pth_file_generator{
+public class pth_file_generator extends dmTool{
 	//Variables
 	private String fileName;
 	private int seedValue;
@@ -29,6 +29,13 @@ public class pth_file_generator{
 
 	//Constructors
 	public pth_file_generator(){
+		super.toolName = "File Generator";
+	}
+
+	//Functions
+	@Override
+	public void startTool()
+	{
 		try{
 			pfg_Initialize();
 			pfg_WriteText();
@@ -40,7 +47,6 @@ public class pth_file_generator{
 		}
 	}
 
-	//Functions
 	private void pfg_Initialize() throws IOException{
 		System.out.println("Select Directory or File at current directory");
 		fileName = currentScanner.nextLine();
@@ -84,8 +90,13 @@ public class pth_file_generator{
 		}
 		if (tempString.equals("y"))
 		{
-			System.out.println("Encrypting File");
-			pfg_EncryptText();
+			System.out.println("Would you like to encrypt your file(y/n)?");
+			tempString = currentScanner.nextLine();
+			if(tempString.equals("y"))
+			{
+				System.out.println("Encrypting File");
+				pfg_EncryptText();
+			}
 			pfg_ToFile();
 		}
 	}
