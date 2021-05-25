@@ -40,6 +40,7 @@ class Pathfinder{
 
 	private static void pthfnder_initializeGame(){
 		//Generate Ruleset Engine
+		Global.startEngine();
 	};
 
 	private static void pthfnder_pullAvaliableGames(){

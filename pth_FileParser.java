@@ -18,6 +18,7 @@ class pth_FileParser{
 	private ArrayList<String> currentFile = new ArrayList<String>();
 	private boolean validFile = false;
 	private String unencryptedLine;
+	private String firstLine;
 	private StringBuilder returnString;
 
 	//Constructors
@@ -27,6 +28,7 @@ class pth_FileParser{
 
 	//Functions
 	public String[] parseFile(String fileType, String fileName){
+		currentFile.clear();
 		System.out.println("Parsing File Name: "+fileName);
 		try{
 			fileToParse = new File(Global.contentDirectory+"/"+fileType+"/"+fileName);
@@ -34,13 +36,30 @@ class pth_FileParser{
 				System.out.println("Valid File");
 				validFile = true;
 				scanner = new Scanner(fileToParse);
-				seed = Long.parseLong(scanner.nextLine());
+				firstLine = scanner.nextLine();
+				if(numericCheck(firstLine))
+				{
+					seed = Long.parseLong(firstLine);
+					//currentFile.add(unencryptLine(firstLine));
+				}
+				else
+				{
+					seed = 0;
+					currentFile.add(firstLine);
+				}
 			}
 			while(validFile&&scanner.hasNextLine())
 			{
 				System.out.println("Reading Line");
 				unencryptedLine = scanner.nextLine();
-				currentFile.add(unencryptLine(unencryptedLine));
+				if(seed != 0)
+				{
+					currentFile.add(unencryptLine(unencryptedLine));
+				}
+				else
+				{
+					currentFile.add(unencryptedLine);
+				}
 			}
 			return currentFile.toArray(new String[0]);
 		}
@@ -71,5 +90,24 @@ class pth_FileParser{
 		}
 		return returnString.toString();
 	};
+
+	private boolean numericCheck(String stringToCheck){
+		try{
+			long l = Long.parseLong(stringToCheck);
+			System.out.println(stringToCheck + " is a number");
+			return true;
+		}
+		catch(NumberFormatException ex)
+		{
+			System.out.println(stringToCheck + " is not a number");
+			return false;
+		}
+		catch(Exception ex)
+		{
+			Global.log.log("Error", "Error: Engine Parse Numeric Check Failure");
+			System.out.println("Error Logged: Check Log");
+			return false;
+		}
+	}
 }
 

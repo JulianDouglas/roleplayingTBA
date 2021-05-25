@@ -13,6 +13,12 @@ class pth_FileParser_test{
 
 	//Functions
 	public static void main(String args[]){
+		returnString = testParser.parseFile("Rules","Rules_encrypt");
+
+		for (int i = 0; i< returnString.length;i++){
+			System.out.println(returnString[i]);
+		}
+
 		returnString = testParser.parseFile("Rules","Rules");
 
 		for (int i = 0; i< returnString.length;i++){

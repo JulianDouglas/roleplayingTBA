@@ -13,6 +13,7 @@ public class Global {
 	public static String contentDirectory = "";//ContentDirectory
 	public static boolean running = true;
 	public static pth_FileParser fileParser = null;
+	public static pth_Engine currentEngine = null;
 	public static pth_Logger log = null;
 	private static boolean dmMode = false; //A flag for when the menu switches to DM Tools
 	private static pth_DMmenu DMHandler = null;
@@ -46,5 +47,10 @@ public class Global {
 		catch(Exception ex){
 			System.out.println(ex.toString());
 		}
+	}
+
+	//Intiates game engine of given type
+	public void startEngine(){
+		currentEngine = new pth_Engine(currentGame);
 	}
 }
