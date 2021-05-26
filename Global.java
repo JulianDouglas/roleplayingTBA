@@ -52,5 +52,12 @@ public class Global {
 	//Intiates game engine of given type
 	public void startEngine(){
 		currentEngine = new pth_Engine(currentGame);
+		currentEngine.initialiseEngine(currentGame);
+	}
+
+	//Parses file
+	public String[] parseFile(String type, String fileToParse)
+	{
+		return fileParser.parseFile(type, fileToParse);
 	}
 }

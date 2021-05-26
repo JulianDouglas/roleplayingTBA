@@ -94,12 +94,12 @@ class pth_FileParser{
 	private boolean numericCheck(String stringToCheck){
 		try{
 			long l = Long.parseLong(stringToCheck);
-			System.out.println(stringToCheck + " is a number");
+			//System.out.println(stringToCheck + " is a number");
 			return true;
 		}
 		catch(NumberFormatException ex)
 		{
-			System.out.println(stringToCheck + " is not a number");
+			//System.out.println(stringToCheck + " is not a number");
 			return false;
 		}
 		catch(Exception ex)

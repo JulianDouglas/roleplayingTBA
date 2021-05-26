@@ -40,6 +40,7 @@ class Pathfinder{
 
 	private static void pthfnder_initializeGame(){
 		//Generate Ruleset Engine
+		System.out.println("Starting engine");
 		Global.startEngine();
 	};
 
@@ -78,11 +79,11 @@ class Pathfinder{
 	private static void pthfnder_gamestart(){
 		while(Global.running){
 			//Retrieve Input (Parser)
-			playerInput.pth_RetrieveInput();
 			//Interpret Input (Action Engine)
+			Global.currentEngine.interpretInput(playerInput.pth_RetrieveInput()); 
 			//Resolve Input (World Engine)
 			//Generate Response (World Engine)
-			Global.running = false;
+			//Global.running = false;
 		}
 	}
 }
