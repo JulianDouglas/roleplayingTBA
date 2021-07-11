@@ -6,6 +6,8 @@ Rule processing engine. Meant to process rules from parsed input
 as well as adjust world actor attributes
 */
 
+/** Not Currently in Use, but may be repurposed for story engine **/
+
 import java.io.File;
 import java.util.ArrayList;
 

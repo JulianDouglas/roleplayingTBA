@@ -35,7 +35,15 @@ class Pathfinder{
 		pthfnder_pullAvaliableGames();
 
 		//Initialize game setup
-		pthfnder_initializeGame();
+		if(Global.currentGame != "")
+		{
+			pthfnder_initializeGame();
+		}
+		else
+		{
+			System.out.print("Please choose a listed game");
+			//To Do: Add looped input for choosing game
+		}
 	};
 
 	private static void pthfnder_initializeGame(){
@@ -77,7 +85,7 @@ class Pathfinder{
 	};
 
 	private static void pthfnder_gamestart(){
-		while(Global.running){
+		while(Global.running && Global.currentGame != ""){
 			//Retrieve Input (Parser)
 			//Interpret Input (Action Engine)
 			Global.currentEngine.interpretInput(playerInput.pth_RetrieveInput()); 

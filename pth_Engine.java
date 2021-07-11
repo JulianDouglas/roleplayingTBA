@@ -27,7 +27,7 @@ public class pth_Engine{
 	public void initialiseEngine(String gameToStart){
 		engineParseFile("Rules","Rules");
 
-		System.out.println("Engine Loaded");
+		System.out.println("...Engine Loaded");
 	}
 
 	//Parses the rule files using Global Function
