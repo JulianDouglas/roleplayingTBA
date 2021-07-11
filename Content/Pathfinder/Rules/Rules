@@ -1,4 +1,4 @@
-check 20
+dice 20
 success greater skill
 criticalfail 1
 criticalsuccess 20
