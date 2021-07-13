@@ -60,4 +60,8 @@ public class Global {
 	{
 		return fileParser.parseFile(type, fileToParse);
 	}
+
+	public void log(String newlogFile, String logLine){
+		log.log(newlogFile, logLine);
+	}
 }

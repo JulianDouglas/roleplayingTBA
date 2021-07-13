@@ -65,7 +65,7 @@ class pth_FileParser{
 		}
 		catch(Exception ex)
 		{
-			Global.log.log("Error","Parser:"+fileType+"/"+fileName+" Error:"+ex.toString());
+			Global.log("Error","Parser:"+fileType+"/"+fileName+" Error:"+ex.toString());
 			return null;
 		}
 	};
@@ -104,7 +104,7 @@ class pth_FileParser{
 		}
 		catch(Exception ex)
 		{
-			Global.log.log("Error", "Error: Engine Parse Numeric Check Failure");
+			Global.log("Error", "Error: Engine Parse Numeric Check Failure");
 			System.out.println("Error Logged: Check Log");
 			return false;
 		}
