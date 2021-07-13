@@ -18,7 +18,7 @@ class pth_Logger_test{
 		testLogger = new pth_Logger();
 
 		testLogger.log("Error","Test Logger");
-		Global.log.log("Test File","Something to write about");
+		Global.log("Test File","Something to write about");
 
 	}
 }
