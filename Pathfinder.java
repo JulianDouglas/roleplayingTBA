@@ -25,12 +25,6 @@ class Pathfinder{
 		//Start with Input class
 		playerInput = new pth_input("Player Input Parser",false);
 
-		//Prompt for game setup
-		System.out.println("Welcome to House Rules");
-		System.out.println("Created by Julian Douglas");
-		System.out.print("\n");
-		System.out.println("Please select what game you would like to play:");
-
 		//Retrieve game select
 		pthfnder_pullAvaliableGames();
 
@@ -58,29 +52,22 @@ class Pathfinder{
 
 		String[] listedRuleSets = listedRules.list();
 
-		for (int i = 0;i<listedRuleSets.length;i++){
-			System.out.println(listedRuleSets[i]);
-		}
-		System.out.print("\n");
-
-		gameInput = playerInput.pth_RetrieveInput();
-
-		if (gameInput.equalsIgnoreCase("DMTools"))
+		Menu.PlayerInputAction playerInputAction = Menu.printMenuAndGetPlayerInput(
+			"Welcome to House Rules\n" +
+			"Created by Julian Douglas\n\n" +
+			"Please select a listed game", listedRuleSets, playerInput);
+		
+		if (playerInputAction.playerInput.equalsIgnoreCase("DMTools"))
 		{
 			Global.startDMmode();
 		}
-		else
+		else if (playerInputAction.actionIndex != -1)
 		{
-			for(int i = 0;i<listedRuleSets.length;i++){
-				if (gameInput.equals(listedRuleSets[i]))
-				{
-					Global.currentGame=listedRuleSets[i];
-					Global.contentDirectory=listedRules.getPath();
-					Global.contentDirectory+="/"+Global.currentGame;
-					System.out.println(Global.currentGame);
-					System.out.println(Global.contentDirectory);
-				}
-			}
+			Global.currentGame=listedRuleSets[playerInputAction.actionIndex];
+			Global.contentDirectory=listedRules.getPath();
+			Global.contentDirectory+="/"+Global.currentGame;
+			System.out.println(Global.currentGame);
+			System.out.println(Global.contentDirectory);
 		}
 	};
 
