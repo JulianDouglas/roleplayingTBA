@@ -5,21 +5,21 @@ import java.lang.System;
 public class Menu {
 	public static PlayerInputAction printMenuAndGetPlayerInput(
 			String description, String[] actions, pth_input playerInput) {
-		printMenuWithActions(description, actions);
+		printMenu(description, actions);
 		return interpretPlayerInput(Arrays.asList(actions), playerInput);
 	}
 
 	// Some text with no user visible actions.
 	public static void printMenu(String description) {
-		printMenuWithActions(description, (List<String>)null);
+		printMenu(description, (List<String>)null);
 	}
 
 	// Some text describing the context around what actions may be taken.
-	public static void printMenuWithActions(String description, List<String> actions) {
+	public static void printMenu(String description, List<String> actions) {
 		System.out.print(buildMenu(description, actions));
 	}
-	public static void printMenuWithActions(String description, String[] actions) {
-		printMenuWithActions(description, Arrays.asList(actions));
+	public static void printMenu(String description, String[] actions) {
+		printMenu(description, Arrays.asList(actions));
 	}
 
 	public static String buildMenu(String description, List<String> actions) {
